@@ -1,12 +1,51 @@
 package es.upm.dit.algoritmos.ej201;
 
+import java.util.List;
+
 public class CarpetaUtils {
 
 	public static double calcularPesoTotal(Carpeta inicio) {
-	    // Caso base implícito: si la carpeta no tiene archivos ni subcarpetas,
-	    // los bucles no se ejecutan y devuelve 0.0.
+		if (inicio == null) {
+			return 0.0;
+			}
+		
+	    double pesoTotalMB = 0.0;
+	    List <Archivo> archivosCarpeta = inicio.getArchivos();
+	    List <Carpeta> subcarpetasCarpeta = inicio.getSubcarpetas();
 	    
-	    if (inicio == null) return 0.0; // Protección contra null
+	    if (inicio.getArchivos() != null) {
+	    for (Archivo a : archivosCarpeta) {
+	        pesoTotalMB += a.getPesoMB();
+	        }
+	    }
+	    
+	    if (inicio.getSubcarpetas() != null) {
+	    for( Carpeta s : subcarpetasCarpeta) {
+	    	pesoTotalMB += calcularPesoTotal(s);
+	    	}
+	    }
+	    
+	    return pesoTotalMB;
+	}
+}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	 /*   if (inicio == null) return 0.0; // Protección contra null
 
 	    double pesoTotal = 0.0;
 
@@ -27,3 +66,4 @@ public class CarpetaUtils {
 	    return pesoTotal;
 	}
 }
+*/
