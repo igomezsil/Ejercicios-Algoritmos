@@ -30,7 +30,30 @@ public class Empleado {
 	public void addSubordinado(Empleado subordinado) {
 		this.subordinados.add(subordinado);
 	}
+	public static double presupuestoEquipo (Empleado jefe) {
+		if (jefe == null) {
+			return 0.0;
+		}
+		
+		double presupuestoEquipo = jefe.getSalario();
+		List <Empleado> subordinados = jefe.getSubordinados();
+		
+		if (subordinados != null) {
+			for (Empleado s : subordinados) {
+				presupuestoEquipo += presupuestoEquipo(s);
+				}
+			}
+			
+		return presupuestoEquipo;
+		
+	}
+	
+}
 
+
+
+
+/*
 	public static double presupuestoEquipo(Empleado jefe) {
 		if (jefe == null)
 			return 0.0;
@@ -48,3 +71,4 @@ public class Empleado {
 		return total;
 	}
 }
+*/
