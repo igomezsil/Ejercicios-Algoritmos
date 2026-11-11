@@ -25,6 +25,25 @@ public class ElementoHTML {
 	}
 
 	public static int contarEtiquetas(ElementoHTML elemento, String tagBuscado) {
+	    if (elemento == null || tagBuscado == null) {
+	        return 0;
+	    }
+
+	    int numEtiquetas = 0;
+
+	    if (tagBuscado.equals(elemento.getTag())) {
+	        numEtiquetas = 1;
+	    }
+
+	    for (ElementoHTML e : elemento.getHijos()) {
+	        numEtiquetas += contarEtiquetas(e, tagBuscado);
+	    }
+
+	    return numEtiquetas;
+	}
+	
+	/*
+	public static int contarEtiquetas(ElementoHTML elemento, String tagBuscado) {
 		if (elemento == null || tagBuscado == null)
 			return 0;
 
@@ -46,5 +65,5 @@ public class ElementoHTML {
 
 		return contador;
 	}
-
+*/
 }
