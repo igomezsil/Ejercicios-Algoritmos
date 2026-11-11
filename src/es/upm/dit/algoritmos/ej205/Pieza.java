@@ -29,7 +29,33 @@ public class Pieza {
 	public void addComponente(Pieza componente) {
 		this.componentes.add(componente);
 	}
-
+	
+	public static boolean contieneDefectos (Pieza piezaPrincipal) {
+		if (piezaPrincipal.isDefectuosa()) {
+			return true;
+		}
+		
+		if (piezaPrincipal.getComponentes() != null) {
+			for (Pieza componente : piezaPrincipal.getComponentes()) {
+				if (contieneDefectos(componente)) {
+					return true;
+				}
+			}
+		}
+		
+		return false;
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+/*
 	public static boolean contieneDefectos(Pieza piezaPrincipal) {
 		if (piezaPrincipal == null)
 			return false;
@@ -52,5 +78,5 @@ public class Pieza {
 		// Ni la pieza ni sus descendientes tienen defectos
 		return false;
 	}
-
+*/
 }
