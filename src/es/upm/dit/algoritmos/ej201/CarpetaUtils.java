@@ -7,21 +7,21 @@ public class CarpetaUtils {
 	public static double calcularPesoTotal(Carpeta inicio) {
 		if (inicio == null) {
 			return 0.0;
-			}
+		}
 		
 	    double pesoTotalMB = 0.0;
 	    List <Archivo> archivosCarpeta = inicio.getArchivos();
 	    List <Carpeta> subcarpetasCarpeta = inicio.getSubcarpetas();
 	    
-	    if (inicio.getArchivos() != null) {
-	    for (Archivo a : archivosCarpeta) {
-	        pesoTotalMB += a.getPesoMB();
+	    if (archivosCarpeta != null) {
+	    	for (Archivo a : archivosCarpeta) {
+	    		pesoTotalMB += a.getPesoMB();
 	        }
 	    }
 	    
-	    if (inicio.getSubcarpetas() != null) {
-	    for( Carpeta s : subcarpetasCarpeta) {
-	    	pesoTotalMB += calcularPesoTotal(s);
+	    if (subcarpetasCarpeta != null) {
+	    	for( Carpeta s : subcarpetasCarpeta) {
+	    		pesoTotalMB += calcularPesoTotal(s);
 	    	}
 	    }
 	    
