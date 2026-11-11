@@ -36,8 +36,8 @@ public class Pieza {
 		}
 		
 		if (piezaPrincipal.getComponentes() != null) {
-			for (Pieza componente : piezaPrincipal.getComponentes()) {
-				if (contieneDefectos(componente)) {
+			for (Pieza c : piezaPrincipal.getComponentes()) {
+				if (contieneDefectos(c)) {
 					return true;
 				}
 			}
