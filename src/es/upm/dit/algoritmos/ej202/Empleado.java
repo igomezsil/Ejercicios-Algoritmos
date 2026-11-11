@@ -30,6 +30,7 @@ public class Empleado {
 	public void addSubordinado(Empleado subordinado) {
 		this.subordinados.add(subordinado);
 	}
+	
 	public static double presupuestoEquipo (Empleado jefe) {
 		if (jefe == null) {
 			return 0.0;
