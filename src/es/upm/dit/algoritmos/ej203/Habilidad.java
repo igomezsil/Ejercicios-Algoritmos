@@ -40,7 +40,7 @@ public class Habilidad {
 		
 		if (desbloqueables != null) {
 			for (Habilidad h: desbloqueables) {
-				costeRamaCompleta = costeRamaCompleta(h);
+				costeRamaCompleta += costeRamaCompleta(h);
 			}
 		}
 		
